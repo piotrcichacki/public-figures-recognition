@@ -34,15 +34,7 @@ class WebDriver:
 
 def search_in_google(driver, search_query, delay=2.0):
     search_query = search_query.replace(" ", "+")
-    url = f"https://www.google.com/search?q={search_query}"
-    driver.get(url)
-    time.sleep(delay)
-    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-
-
-def switch_to_google_graphics(driver, delay=2.0):
-    graphics_button = driver.find_element(by=By.LINK_TEXT, value="Grafika")
-    url = graphics_button.get_attribute("href")
+    url = f"https://www.google.com/search?tbm=isch&q={search_query}"
     driver.get(url)
     time.sleep(delay)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")

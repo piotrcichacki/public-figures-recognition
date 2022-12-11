@@ -3,7 +3,7 @@ import os
 import yaml
 
 from utils.detection import detect_faces_from_image, crop_image
-from utils.websearching import WebDriver, search_in_google, switch_to_google_graphics, search_images, download_image, \
+from utils.websearching import WebDriver, search_in_google, search_images, download_image, \
     ErrorDuringDownloadingImage, save_image
 
 
@@ -30,7 +30,6 @@ if __name__ == '__main__':
 
                 search_query = f"{person} {keyword}"
                 search_in_google(web_driver, search_query)
-                switch_to_google_graphics(web_driver)
                 for image_url in search_images(web_driver):
                     try:
                         image = download_image(image_url)
