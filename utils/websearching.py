@@ -6,6 +6,8 @@ import requests
 from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class ErrorDuringDownloadingImage(Exception):
@@ -20,6 +22,8 @@ class WebDriver:
     def __enter__(self):
         self.web_driver = webdriver.Chrome(executable_path=self.file_path)
         self.web_driver.maximize_window()
+        self.web_driver.get("https://www.google.com/")
+        WebDriverWait(self.web_driver, 10).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="L2AGLb"]'))).click()
         return self.web_driver
 
     def __exit__(self, exc_type, exc_val, exc_tb):
