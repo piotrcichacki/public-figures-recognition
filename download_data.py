@@ -1,0 +1,44 @@
+import os
+
+import yaml
+
+from utils.detection import detect_faces_from_image, crop_image
+from utils.websearching import WebDriver, search_in_google, switch_to_google_graphics, search_images, download_image, \
+    ErrorDuringDownloadingImage, save_image
+
+
+def load_catalog(catalog_path):
+    with open(catalog_path, "r") as file:
+        try:
+            return yaml.safe_load(file)
+        except yaml.YAMLError as err:
+            print(err)
+            return {"footballers": [], "keywords": []}
+
+
+if __name__ == '__main__':
+
+    catalog = load_catalog(catalog_path="conf/catalog.yml")
+
+    with WebDriver(file_path="utils/chromedriver.exe") as web_driver:
+        for person in catalog["footballers"]:
+            for keyword in catalog["keywords"]:
+                person_folder_name = person.replace(" ", "_").lower()
+                person_folder_path = f"data/01_raw/{person_folder_name}"
+                if not os.path.isdir(person_folder_path):
+                    os.mkdir(person_folder_path)
+
+                search_query = f"{person} {keyword}"
+                search_in_google(web_driver, search_query)
+                switch_to_google_graphics(web_driver)
+                for image_url in search_images(web_driver):
+                    try:
+                        image = download_image(image_url)
+                    except ErrorDuringDownloadingImage as error:
+                        continue
+
+                    detected_faces = detect_faces_from_image(image)
+                    for face_box in detected_faces:
+                        face_crop = crop_image(image, face_box)
+                        save_path = os.path.join(person_folder_path, f"{len(os.listdir(person_folder_path))}.jpg")
+                        save_image(face_crop, save_path)
