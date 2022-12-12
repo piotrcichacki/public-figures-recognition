@@ -29,7 +29,7 @@ if __name__ == '__main__':
 
     catalog = load_catalog(catalog_path="conf/catalog.yml")
 
-    with WebDriver(file_path="utils/chromedriver") as web_driver:
+    with WebDriver(file_path="utils/geckodriver.exe") as web_driver:
         for person in catalog["footballers"]:
             for keyword in catalog["keywords"]:
                 print(f"Searching for: '{person} {keyword}'...")

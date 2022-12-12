@@ -21,7 +21,7 @@ class WebDriver:
         self.file_path = file_path
 
     def __enter__(self):
-        service = Service(executable_path="utils/geckodriver")
+        service = Service(executable_path=self.file_path)
         opts = FirefoxOptions()
         opts.add_argument("--headless")
         self.web_driver = webdriver.Firefox(service=service, options=opts)
