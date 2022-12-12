@@ -21,10 +21,7 @@ class WebDriver:
         self.file_path = file_path
 
     def __enter__(self):
-        service = Service(executable_path="utils/geckodriver")
-        opts = FirefoxOptions()
-        opts.add_argument("--headless")
-        self.web_driver = webdriver.Firefox(service=service, options=opts)
+        self.web_driver = webdriver.Chrome(executable_path=self.file_path)
         self.web_driver.maximize_window()
         self.web_driver.get("https://www.google.com/")
         WebDriverWait(self.web_driver, 10).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="L2AGLb"]'))).click()
