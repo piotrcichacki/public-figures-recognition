@@ -1,18 +1,4 @@
 footballers:
-  - Robert Lewandowski
-  - Leo Messi
-  - Karim Benzema
-  - Kylian Mbappe
-  - Kevin De Bruyne
-  - Thibaut Courtois
-  - Sadio Mane
-  - Luis Suarez
-  - Cristiano Ronaldo
-  - Luka Modric
-  - Mohamed Salah
-  - Neymar
-  - Sergio Ramos
-  - Antoine Griezmann
   - Manuel Neuer
   - Alisson Becker
   - Virgil van Dijk
@@ -23,15 +9,10 @@ footballers:
 keywords:
   - ''
   - football
-  - pilkarz
   - portrait
-  - portret
   - face
-  - twarz
   - picture
-  - obrazek
   - instagram
   - photo
-  - zdjecie
   - head
-  - glowa
+  

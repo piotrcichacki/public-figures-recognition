@@ -8,7 +8,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver import FirefoxOptions
 
 class ErrorDuringDownloadingImage(Exception):
     def __init__(self, message=None):
@@ -40,11 +41,22 @@ def search_in_google(driver, search_query, delay=2.0):
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
 
-def search_images(driver, max_index=200, delay=1.0):
+def switch_to_google_graphics(driver, delay=2.0):
+    graphics_button = driver.find_element(by=By.LINK_TEXT, value="Images")
+    url = graphics_button.get_attribute("href")
+    driver.get(url)
+    time.sleep(delay)
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+
+def search_images(driver, max_index=100, delay=1.0):
     thumbnails = driver.find_elements(by=By.CLASS_NAME, value="Q4LuWd")
     current_index = 0
     while current_index < max_index:
-        thumbnails[current_index].click()
+        try:
+            thumbnails[current_index].click()
+        except:
+            return
         time.sleep(delay)
 
         elements = driver.find_elements(by=By.CLASS_NAME, value="n3VNCb")
@@ -56,6 +68,7 @@ def search_images(driver, max_index=200, delay=1.0):
 
 
 def download_image(image_url):
+    print(f"Downloading image: {image_url}")
     try:
         img_content = requests.get(image_url).content
     except requests.exceptions.InvalidSchema as err:
@@ -76,3 +89,4 @@ def save_image(image, save_path):
     img = Image.fromarray(image)
     with open(save_path, mode="w") as img_file:
         img.save(img_file, "JPEG")
+
