@@ -9,7 +9,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.service import Service
-from selenium.webdriver import FirefoxOptions
+from selenium.webdriver.chrome.options import Options
 
 class ErrorDuringDownloadingImage(Exception):
     def __init__(self, message=None):
@@ -21,7 +21,9 @@ class WebDriver:
         self.file_path = file_path
 
     def __enter__(self):
-        self.web_driver = webdriver.Chrome(executable_path=self.file_path)
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
+        self.web_driver = webdriver.Chrome(executable_path=self.file_path, options=chrome_options)
         self.web_driver.maximize_window()
         self.web_driver.get("https://www.google.com/")
         WebDriverWait(self.web_driver, 10).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="L2AGLb"]'))).click()
@@ -36,14 +38,6 @@ class WebDriver:
 def search_in_google(driver, search_query, delay=2.0):
     search_query = search_query.replace(" ", "+")
     url = f"https://www.google.com/search?tbm=isch&q={search_query}"
-    driver.get(url)
-    time.sleep(delay)
-    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-
-
-def switch_to_google_graphics(driver, delay=2.0):
-    graphics_button = driver.find_element(by=By.LINK_TEXT, value="Images")
-    url = graphics_button.get_attribute("href")
     driver.get(url)
     time.sleep(delay)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
