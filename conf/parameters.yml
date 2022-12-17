@@ -1,15 +1,3 @@
-nn_model:
-  model_name:
-  architecture:
-    dense_layer_1:
-      units:
-      activation:
-  compile:
-    optimizer:
-    learning_rate:
-    loss:
-    metrics:
-      -
-  fit:
-    epochs:
-    batch_size:
+split_sizes:
+  train: 150
+  val: 50

@@ -133,5 +133,6 @@ dmypy.json
 # ignore everything in the following folder except their sub-folders
 data/**
 !data/*
+!data/05_model/*
 
 utils/chromedriver.exe
