@@ -136,3 +136,5 @@ data/**
 !data/05_model/*
 
 utils/chromedriver.exe
+
+logs/

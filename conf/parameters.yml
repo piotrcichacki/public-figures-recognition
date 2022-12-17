@@ -1,3 +1,3 @@
 split_sizes:
-  train: 150
-  val: 50
+  train_test: 0.8
+  train_val: 0.8

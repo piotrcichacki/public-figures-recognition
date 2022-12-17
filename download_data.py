@@ -1,24 +1,13 @@
 import os
 
-import yaml
-
 from utils.detection import detect_faces_from_image, crop_image
+from utils.utils import load_yaml
 from utils.websearching import WebDriver, search_in_google, search_images, download_image, \
     ErrorDuringDownloadingImage, save_image
 
-
-def load_catalog(catalog_path):
-    with open(catalog_path, "r") as file:
-        try:
-            return yaml.safe_load(file)
-        except yaml.YAMLError as err:
-            print(err)
-            return {"footballers": [], "keywords": []}
-
-
 if __name__ == '__main__':
 
-    catalog = load_catalog(catalog_path="conf/catalog.yml")
+    catalog = load_yaml(file_path="conf/catalog.yml")
 
     with WebDriver(file_path="utils/chromedriver.exe") as web_driver:
         for person in catalog["footballers"]:
