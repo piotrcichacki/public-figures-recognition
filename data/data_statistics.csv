@@ -1,0 +1,81 @@
+Data preprocessing phase,person,images_num
+Web scraping,Alisson Becker,500
+Web scraping,Antoine Griezmann,548
+Web scraping,Cristiano Ronaldo,500
+Web scraping,Erling Haaland,499
+Web scraping,Gianluigi Donnarumma,469
+Web scraping,Karim Benzema,508
+Web scraping,Kevin De Bruyne,534
+Web scraping,Kylian Mbappe,599
+Web scraping,Leo Messi,555
+Web scraping,Luis Suarez,515
+Web scraping,Luka Modric,500
+Web scraping,Manuel Neuer,503
+Web scraping,Mohamed Salah,401
+Web scraping,Neymar,529
+Web scraping,Robert Lewandowski,516
+Web scraping,Sadio Mane,534
+Web scraping,Sergio Ramos,553
+Web scraping,Thibaut Courtois,545
+Web scraping,Toni Kroos,443
+Web scraping,Virgil Van Dijk,501
+Remove duplicates,Alisson Becker,353
+Remove duplicates,Antoine Griezmann,417
+Remove duplicates,Cristiano Ronaldo,387
+Remove duplicates,Erling Haaland,368
+Remove duplicates,Gianluigi Donnarumma,302
+Remove duplicates,Karim Benzema,379
+Remove duplicates,Kevin De Bruyne,426
+Remove duplicates,Kylian Mbappe,451
+Remove duplicates,Leo Messi,416
+Remove duplicates,Luis Suarez,357
+Remove duplicates,Luka Modric,341
+Remove duplicates,Manuel Neuer,341
+Remove duplicates,Mohamed Salah,311
+Remove duplicates,Neymar,441
+Remove duplicates,Robert Lewandowski,335
+Remove duplicates,Sadio Mane,320
+Remove duplicates,Sergio Ramos,423
+Remove duplicates,Thibaut Courtois,359
+Remove duplicates,Toni Kroos,298
+Remove duplicates,Virgil Van Dijk,360
+Remove outliers,Alisson Becker,273
+Remove outliers,Antoine Griezmann,309
+Remove outliers,Cristiano Ronaldo,295
+Remove outliers,Erling Haaland,298
+Remove outliers,Gianluigi Donnarumma,236
+Remove outliers,Karim Benzema,297
+Remove outliers,Kevin De Bruyne,293
+Remove outliers,Kylian Mbappe,323
+Remove outliers,Leo Messi,302
+Remove outliers,Luis Suarez,237
+Remove outliers,Luka Modric,239
+Remove outliers,Manuel Neuer,225
+Remove outliers,Mohamed Salah,257
+Remove outliers,Neymar,313
+Remove outliers,Robert Lewandowski,259
+Remove outliers,Sadio Mane,243
+Remove outliers,Sergio Ramos,302
+Remove outliers,Thibaut Courtois,259
+Remove outliers,Toni Kroos,214
+Remove outliers,Virgil Van Dijk,256
+Manual check,Alisson Becker,261
+Manual check,Antoine Griezmann,287
+Manual check,Cristiano Ronaldo,288
+Manual check,Erling Haaland,288
+Manual check,Gianluigi Donnarumma,226
+Manual check,Karim Benzema,277
+Manual check,Kevin De Bruyne,282
+Manual check,Kylian Mbappe,317
+Manual check,Leo Messi,287
+Manual check,Luis Suarez,225
+Manual check,Luka Modric,234
+Manual check,Manuel Neuer,209
+Manual check,Mohamed Salah,246
+Manual check,Neymar,302
+Manual check,Robert Lewandowski,247
+Manual check,Sadio Mane,236
+Manual check,Sergio Ramos,290
+Manual check,Thibaut Courtois,251
+Manual check,Toni Kroos,205
+Manual check,Virgil Van Dijk,248

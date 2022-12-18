@@ -7,7 +7,7 @@ from utils.recognition import extract_person_feature_vectors
 
 if __name__ == "__main__":
 
-    data_folder_path = "data/04_output"
+    data_folder_path = "data/images"
 
     X = []
     y = []
@@ -32,8 +32,8 @@ if __name__ == "__main__":
     for person_id, person_name in id_dict.items():
         print(f"{person_id}: {person_name}")
 
-    np.save("data/05_model/X.npy", X)
-    np.save("data/05_model/y.npy", y)
+    np.save("data/output/X.npy", X)
+    np.save("data/output/y.npy", y)
 
-    with open("data/05_model/id.json", mode="w") as f:
+    with open("data/output/id.json", mode="w") as f:
         f.write(json.dumps(id_dict))
