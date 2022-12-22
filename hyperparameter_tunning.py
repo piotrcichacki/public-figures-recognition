@@ -66,7 +66,7 @@ def train_model(hparams, version):
 
         cm = sklearn.metrics.confusion_matrix(test_target, test_pred)
 
-        f = open("data/05_model/id.json")
+        f = open("data/output/id.json")
         ids = json.load(f)
         classes = [value for _, value in ids.items()]
 
