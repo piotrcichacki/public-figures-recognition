@@ -26,8 +26,13 @@ def create_faces(image_url, person_folder_path):
 
 
 if __name__ == '__main__':
-    detect_faces_from_image(np.zeros([100, 100, 3])) # used to download retinaface before doing anything
+    # used to download retinaface before doing anything
+    detect_faces_from_image(np.zeros([100, 100, 3])) 
+
+    # loading football players and keywords
     catalog = load_catalog(catalog_path="conf/catalog.yml")
+
+    # downloading process
     with WebDriver(file_path="utils/chromedriver.exe") as web_driver:
         for person in catalog["footballers"]:
             for keyword in catalog["keywords"]:
@@ -48,7 +53,11 @@ if __name__ == '__main__':
                             print("Limit reached")
                             break
                         try:
-                            func_timeout.func_timeout(20, create_faces, args=[image_url, person_folder_path])
+                            func_timeout.func_timeout(
+                                20, 
+                                create_faces, 
+                                args=[image_url, person_folder_path]
+                            )
                         except:
                             continue
                 except Exception as err:
