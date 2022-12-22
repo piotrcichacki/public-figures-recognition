@@ -22,7 +22,8 @@ Description
 
 This script runs a Web Scraper that searches in google images for combinations of a football player names and some keywords, for example "Cristiano Ronaldo face". Then it downloads found images, and uses RetinaFace library to crop faces from the images, which are saved as separate files in folder named by fotball player's name and surname. 
 
-NOTE: The script runs in headless mode. If you want to see web browser in action looking for images, then comment the line that adds `--headless` option in file `utils/websearching.py`
+NOTE: 
+The script runs in headless mode. If you want to see web browser in action looking for images, then comment the line that adds `--headless` option in file `utils/websearching.py`
 
 
 ### clean_data.py
