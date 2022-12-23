@@ -28,12 +28,11 @@ if __name__ == '__main__':
             for keyword in catalog["keywords"]:
                 print(f"Searching for: '{person} {keyword}'...")
                 person_folder_name = person.replace(" ", "_").lower()
-                person_folder_path = f"data/01_raw/{person_folder_name}"
+                person_folder_path = f"data/images/{person_folder_name}"
                 if not os.path.isdir(person_folder_path):
                     os.mkdir(person_folder_path)
                 if len(os.listdir(person_folder_path)) >= 500:
                     break
-                
 
                 search_query = f"{person} {keyword}"
                 try:
