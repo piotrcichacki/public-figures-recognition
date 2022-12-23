@@ -89,4 +89,6 @@ if __name__ == "__main__":
     results = model.evaluate(X_test, y_test, batch_size=128)
     print(f"Results: test loss = {results[0]:.3f}, test acc = {results[1]:.3f}")
 
-    model.save("saved_model/best_model")
+    model.save("saved_model/best_model.h5")
+    new_model = tf.keras.models.load_model("saved_model/best_model.h5")
+    new_model.summary()
